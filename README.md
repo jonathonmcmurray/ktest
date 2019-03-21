@@ -1,5 +1,7 @@
 # ktest
 
+[![Build Status](https://travis-ci.com/jonathonmcmurray/ktest.svg?branch=master)](https://travis-ci.com/jonathonmcmurray/ktest)
+
 Very basic testing for [shakti](https://shakti.com/) (k7). Install shakti trial
 from [Anaconda](https://anaconda.org/shaktidb).
 

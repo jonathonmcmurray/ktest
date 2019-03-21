@@ -13,8 +13,8 @@ l"pass tests: ",($#:pass),", positive: ",$+/pass;           /pass results
 l"fail tests: ",($#:fail),", positive: ",$+/fail;           /fail results
 
 o:""                                                        /string for neg tests
-if[#f&pass=0;o,:"\nNEGATIVE PASS TESTS:\n","\n"/:f];        /neg passes
-if[#f&fail=0;o,:"\nNEGATIVE FAIL TESTS:\n","\n"/:f];        /neg fails
+if[#f:&pass=0;o,:"\nNEGATIVE PASS TESTS:\n","\n"/:f];       /neg passes
+if[#f:&fail=0;o,:"\nNEGATIVE FAIL TESTS:\n","\n"/:f];       /neg fails
 
 if[#o;l o;FAIL];                                            /check for any negs
 \\                                                          /otherwise exit
