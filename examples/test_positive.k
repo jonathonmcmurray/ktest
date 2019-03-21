@@ -1,0 +1,26 @@
+/positive passes
+pass["PASS equal ints"]:(=;1;1)
+pass["PASS equal names"]:(=;`a;`a)
+pass["PASS unequal ints"]:(~=;1;2)
+pass["PASS unequal names"]:(~=;`a;`b)
+pass["PASS atomic name type"]:(=;`n;@`a)
+pass["PASS list int type"]:(=;`I;@1 2 3)
+pass["PASS more than"]:(>;2;1)
+pass["PASS more than or eq 1"]:(~<;1;1)
+pass["PASS more than or eq 2"]:(~<;2;1)
+pass["PASS less than"]:(<;1;2)
+pass["PASS less than or eq 1"]:(~>;1;1)
+pass["PASS less than or eq 2"]:(~>;1;2)
+pass["PASS string test"]:"1=1"
+
+/positive fails
+fail["FAIL equal ints"]:(=;1;2)
+fail["FAIL equal names"]:(=;`a;`b)
+fail["FAIL unequal ints"]:(~=;1;1)
+fail["FAIL unequal names"]:(~=;`a;`a)
+fail["FAIL atomic name type"]:(=;`n;@1)
+fail["FAIL list int type"]:(=;`I;@`a)
+fail["FAIL more than"]:(>;1;1)
+fail["FAIL more than or eq 1"]:(~<;1;2)
+fail["FAIL less than"]:(<;1;1)
+fail["FAIL less than or eq 1"]:(~>;2;1)

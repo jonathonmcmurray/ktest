@@ -1,0 +1,26 @@
+env:
+
+matrix:
+  include:
+    - name: "Linux positive"
+      os: linux
+      env: MINICONDA_FILE="Miniconda-latest-Linux-x86_64.sh" KTEST=${TRAVIS_BUILD_DIR}/examples/test_positive.k
+    - name: "Linux JSON"
+      os: linux
+      env: MINICONDA_FILE="Miniconda-latest-Linux-x86_64.sh" KTEST=${TRAVIS_BUILD_DIR}/examples/test_json.k
+    - name: "Linux negative"
+      os: linux
+      env: MINICONDA_FILE="Miniconda-latest-Linux-x86_64.sh" KTEST=${TRAVIS_BUILD_DIR}/examples/test_negative.k
+    - name: "Mac positive"
+      os: osx
+      env: MINICONDA_FILE="Miniconda2-latest-MacOSX-x86_64.sh" KTEST=${TRAVIS_BUILD_DIR}/examples/test_positive.k
+  allow_failures:
+    - name: "Linux negative"
+
+language: minimal
+
+install:
+  - source .travis/install_conda.sh
+
+script:
+  - k m.k $KTEST
