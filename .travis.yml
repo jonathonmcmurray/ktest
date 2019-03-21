@@ -23,4 +23,4 @@ install:
   - source .travis/install_conda.sh
 
 script:
-  - k m.k $KTEST
+  - bash run.sh $KTEST

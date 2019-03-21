@@ -103,3 +103,6 @@ To use in your own projects, you can use a similar config & add a step to
 download `m.k` from this repo in addition to installing conda & shakti. (I
 suggest pulling `m.k` from a specific commit or tag, in case of breaking
 changes in `master` branch)
+
+`run.sh` is included to run test in background k process & exit with relevant
+exit code.
