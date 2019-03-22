@@ -11,9 +11,16 @@ from [Anaconda](https://anaconda.org/shaktidb).
 $ k m.k <tests.k>
 ```
 
-`tests.k` should be a file defining tests in form of one/two dictionaries (one
-for tests that should pass \[`pass`\], another for those that should fail
+`tests.k` should be a file defining tests in form of calls to one/two functions
+(one for tests that should pass \[`pass`\], another for those that should fail
 \[`fail`\]). Some examples are included in `examples/`
+
+e.g.
+
+```
+pass["pass equal numbers"]"1=1";
+fail["fail equal numbers"](=;1;2);
+```
 
 Tests themselves should be either parse trees or strings (something that can be
 evaluated with `.`) and should return a boolean.
@@ -23,6 +30,9 @@ For pass tests, a positive result is 1. For fail tests, a positive result is 0.
 Test names should be unique (across pass & fail). In examples, pass tests are
 prepended with `PASS` and fail tests with `FAIL` to ensure uniqueness - this is
 not essential if test names are unique already.
+
+As tests are function calls, if additional code is necessary between tests
+(e.g. mocking data etc.) simply insert this code between calls to `pass`/`fail`.
 
 ## Limitations
 
@@ -105,4 +115,6 @@ suggest pulling `m.k` from a specific commit or tag, in case of breaking
 changes in `master` branch)
 
 `run.sh` is included to run test in background k process & exit with relevant
-exit code.
+exit code. Usage is `$ ./run.sh <tests.k>`. This is included primarily for
+the sake of Travis-CI, locally `k` appears to exit on error but on Travis it
+needs to be background process.
