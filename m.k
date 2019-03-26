@@ -1,21 +1,17 @@
-"m.k shakti testing 2019.03.22"
+"m.k shakti testing 2019.03.26"
 /USAGE: $ k m.k <tests.k>
 /2019.03.21 - Initial version
 /2019.03.22 - Make pass/fail into functions
-p:f:()!`i$()                                                /dictionaries to put results in
-pass:{p[x]:.:y;}                                            /run a test that should pass
-fail:{f[x]:~.:y;}                                           /run a test that should fail
+/2019.03.26 - Store results in table
+r:+[n:();p:`i$();v:`i$()]                                   /results table
+pass:{r,:[n:x;p:1;v:.:y];}                                  /run a test & add results to table
+fail:{r,:[n:x;p:0;v:~.:y];}                                 /run a test & add results to table
 ."\\l ",.z.x 1                                              /load file defining tests
 l:{` 0:x,"\n"}                                              /log to stdout
 
-a:p,f                                                       /combine tests for summary
-l"tests run: ",($#:a),", positive tests: ",($+/a),"\n";     /summary results
-l"pass tests: ",($#:p),", positive: ",$+/p;                 /pass results
-l"fail tests: ",($#:f),", positive: ",$+/f;                 /fail results
+l"tests run: ",($#:r),", positive tests: ",($+/r`v),"\n";   /summary results
+l"pass tests: ",($#:p),", positive: ",$+/p:r[`v]@&:r`p;     /pass results
+l"fail tests: ",($#:f),", positive: ",$+/f:r[`v]@&:~r`p;    /fail results
 
-o:""                                                        /string for neg tests
-if[#n:&p=0;o,:"\nNEGATIVE PASS TESTS:\n","\n"/:n];          /neg passes
-if[#n:&f=0;o,:"\nNEGATIVE FAIL TESTS:\n","\n"/:n];          /neg fails
-
-if[#o;l o;FAIL];                                            /check for any negs
+if[+/~:r`v;l"\nNEGATIVE TESTS:\n","\n"/:r[`n]@&:~r`v;FAIL]; /check for negs
 \\                                                          /otherwise exit
