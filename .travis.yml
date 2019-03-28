@@ -14,8 +14,12 @@ matrix:
     - name: "Mac positive"
       os: osx
       env: MINICONDA_FILE="Miniconda2-latest-MacOSX-x86_64.sh" KTEST=${TRAVIS_BUILD_DIR}/examples/test_positive.k
+    - name: "Mac negative"
+      os: osx
+      env: MINICONDA_FILE="Miniconda2-latest-MacOSX-x86_64.sh" KTEST=${TRAVIS_BUILD_DIR}/examples/test_negative.k
   allow_failures:
     - name: "Linux negative"
+    - name: "Mac negative"
 
 language: minimal
 
