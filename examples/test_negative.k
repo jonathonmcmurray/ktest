@@ -1,4 +1,4 @@
-/negative shouldes
+/negative shoulds
 should["SHOULD equal ints"](=;1;2)
 should["SHOULD more than"](>;1;2)
 
@@ -6,7 +6,7 @@ should["SHOULD more than"](>;1;2)
 shouldnot["SHOULD NOT unequal names"](~=;`a;`b)
 shouldnot["SHOULD NOT less than"](<;1;2)
 
-/positive shouldes
+/positive shoulds
 should["SHOULD unequal names"](~=;`a;`b)
 should["SHOULD atomic name type"](=;`n;@`a)
 
