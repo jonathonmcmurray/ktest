@@ -32,9 +32,7 @@ As tests are function calls, if additional code is necessary between tests
 
 ## Limitations
 
-This is pretty basic & limited. One significant limiting factor is that shakti
-doesn't have protected execution (yet). So tests have to "work" i.e. return a
-value, not hit an error.
+This is pretty basic & limited. Things are likely to break easily.
 
 ## Examples
 
