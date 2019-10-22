@@ -7,5 +7,5 @@ t:+`a`b`c!(1 2 3f;,:'"abc";1.7 2.5 3.9)
 should["SHOULD enc & dec table"](~;t;`j?`j@t)
 should["SHOULD enc & dec dict"](~;*t;`j?`j@*t)
 
-should["SHOULD parse json starting with empty object"](~;{a:{};b:123f};`j?"{\"a\":{},\"b\":123}")
-should["SHOULD parse json with empty object in it"](~;{c:456f;a:{};b:123f};`j?"{\"c\":456,\"a\":{},\"b\":123}")
+should["SHOULD parse json starting with empty object"](~;`a`b!({};123f);`j?"{\"a\":{},\"b\":123}")
+should["SHOULD parse json with empty object in it"](~;`c`a`b!(456f;{};123f);`j?"{\"c\":456,\"a\":{},\"b\":123}")
