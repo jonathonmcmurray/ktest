@@ -7,12 +7,13 @@
 /2019.04.13 - "should", "shouldnot"
 /2019.04.29 - "must"
 /2019.07.04 - error trapping, fixes
+/2019.10.22 - dict syntax
 r:+`n`p`v!(();!0;!0)                                        /results table
 test:{{(0;x)}{(1;.:x)}/:x}                                  /"value" w/ catching errors
 should0:{
  (s;n):test z;
  V:$[s;((~:;::)x)n;s];
- r,:{n:y;p:x;v:V}
+ r,:`n`p`v!(y;x;V)
  }
 should:should0[1]
 shouldnot:should0[0]
